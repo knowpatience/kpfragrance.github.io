@@ -1,0 +1,265 @@
+<!-- index.txt (renamed index.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Know Patience Fragrance offers timelessly elegant fine fragrance." />
+  <title>Know Patience Fragrance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #226222;
+      --accent: #d88e38;
+      --highlight: #c2cb00;
+      --cream: #F8F8F8;
+      --charcoal: #1A1A1A;
+      --black: #000000;
+    }
+
+     a:link {
+       text-decoration: none;
+    }
+     a:visited {
+       text-decoration: none;
+    }
+     a:hover {
+       text-decoration: none;
+    }
+     a:active {
+       text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--charcoal);
+      background-color: var(--cream);
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background-color: var(--cream);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--charcoal);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+	  font-style: italic;
+      font-weight: 400;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .testimonial {
+      font-style: italic;
+      margin-bottom: 30px;
+      color: var(--charcoal);
+    }
+
+    .cta-button {
+      background-color: var(--accent);
+      color: var(--charcoal);
+      padding: 14px 28px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: var(--highlight);
+    }
+	
+	.socialmedia-button{
+	  background-color: var(--accent);
+      color: var(--charcoal);
+      padding: 14px 14px;
+      font-size: 1rem;
+      text-transform: uppercase;
+	  text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+	}
+	
+	.socialmedia-button:hover {
+      background-color: var(--highlight);
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .product-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .product {
+      flex: 0 0 auto;
+      width: 200px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 1rem;
+      margin: 0 0 10px;
+      font-family: 'Playfair Display', serif;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .product p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      background-color: var(--black);
+      color: var(--cream);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer p:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="Catalog.html">Catalog</a>
+    <a href="About.html">About</a>
+  </nav>
+
+  <header>
+    <img src="images/hero-office-perfume.jpg"
+         alt="Know Patience Fragrance"
+         class="hero-image" />
+    <h1>KNOW PATIENCE FRAGRANCE</h1>
+    <h2>Scents for those seeking an elegant and soft spoken presence.</h2><br>
+
+<!-- 
+    <p class="testimonial">"Trust the timing.”</p>
+-->
+    <a href="catalog.html">
+      <button class="cta-button">Explore the Catalog</button>
+    </a>
+  </header>
+
+  <section id="fragrance">
+    <a href="catalog.html">
+         <h2 style="color:var(--primary); margin-bottom:16px;text-decoration:none">Fragrance Collection</h2>
+    </a>
+    <div class="product-carousel">
+      <div class="product">
+        <h2><img src="LLN.jpg" alt="LLN"/></h2>
+        <a href="product_1.html"><h3>La Lavonde Noir</h3></a>
+        <p>Alluringly smooth lavender and spices.</p>
+
+      </div>
+<!--
+      <div class="product">
+        <img src="images/rose-absolute.jpg" alt="Rose Absolute" />
+        <h3>Rose Absolute</h3>
+        <p>Bold blooms for nonstop compliments.</p>
+      </div>
+      <div class="product">
+        <img src="images/amber-fig.jpg" alt="Amber Fig" />
+        <h3>Amber Fig</h3>
+        <p>Warm spice that stays all day.</p>
+      </div>
+      <div class="product">
+        <img src="images/citrus-noir.jpg" alt="Citrus Noir" />
+        <h3>Citrus Noir</h3>
+        <p>Bright top notes with a dark twist.</p>
+      </div>
+      <div class="product">
+        <img src="images/santal-bloom.jpg" alt="Santal Bloom" />
+        <h3>Santal Bloom</h3>
+        <p>Creamy sandalwood meets green florals.</p>
+      </div>
+      <div class="product">
+        <img src="images/discovery-set.jpg" alt="Discovery Set" />
+        <h3>Discovery Set</h3>
+        <p>Select the perfect trio or quintet of 2 ml samples.</p>
+      </div>
+-->
+    </div>
+  </section>
+
+  <section id="style" style="padding:40px 20px; text-align:center;">
+<!--
+    <h2 style="color:var(--primary); margin-bottom:16px;">Style, Made Just for You</h2>
+    <p>No logos. No compromises. Our bespoke military-inspired office wear is tailored to your form and your vision of elegance.</p>
+-->
+    <p>Crafted in small batches. Delivery available across the USA.</p>
+  </section>
+
+  <footer>
+	<p>Find us on social media</p>
+	  <a href="https://www.facebook.com/knowpatiencefragrance">
+	     <button class="socialmedia-button">Facebook</button>
+	  </a>
+	  <a href="https://www.instagram.com/knowpatiencefragrance">
+         <button class="socialmedia-button">Instagram</button>
+      </a>
+	   </p>
+    <p>"Trust the timing."</p>
+    <p>&copy; 2025 KP Life. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

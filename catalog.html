@@ -1,0 +1,172 @@
+<!-- catalog.txt (renamed catalog.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Know Patience Fragrance – Catalog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #226222;
+      --accent: #d88e38;
+      --highlight: #c2cb00;
+      --cream: #F8F8F8;
+      --charcoal: #1A1A1A;
+      --black: #000000;
+    }
+
+     a:link {
+       text-decoration: none;
+    }
+     a:visited {
+       text-decoration: none;
+    }
+     a:hover {
+       text-decoration: none;
+    }
+     a:active {
+       text-decoration: none;
+    }
+	
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--charcoal);
+      background-color: var(--cream);
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background-color: var(--cream);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--charcoal);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .catalog {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--charcoal);
+    }
+
+    .product-card a {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background-color: var(--black);
+      color: var(--cream);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer p:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html#fragrance">Home</a>
+    <a href="index.html#style">About</a>
+  </nav>
+
+  <h1>Fragrance Catalog</h1>
+
+  <div class="catalog">
+    <div class="product-card">
+      <img src="images/LLN.jpg" alt="LLN" />
+      <h3>La Lavonde Noir</h3>
+      <a href="product1.html">View Details</a>
+    </div>
+    <div class="product-card">
+      <img src="images/rose-absolute.jpg" alt="Rose Absolute" />
+      <h3>Rose Absolute</h3>
+      <a href="product2.html">View Details</a>
+    </div>
+    <div class="product-card">
+      <img src="images/amber-fig.jpg" alt="Amber Fig" />
+      <h3>Amber Fig</h3>
+      <a href="product3.html">View Details</a>
+    </div>
+    <div class="product-card">
+      <img src="images/citrus-noir.jpg" alt="Citrus Noir" />
+      <h3>Citrus Noir</h3>
+      <a href="product4.html">View Details</a>
+    </div>
+    <div class="product-card">
+      <img src="images/santal-bloom.jpg" alt="Santal Bloom" />
+      <h3>Santal Bloom</h3>
+      <a href="product5.html">View Details</a>
+    </div>
+    <div class="product-card">
+      <img src="images/discovery-set.jpg" alt="Discovery Set" />
+      <h3>Discovery Set</h3>
+      <a href="discovery.html">Choose Your Set</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Trust the timing</p>
+    <p>&copy; 2025 KP Life. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
