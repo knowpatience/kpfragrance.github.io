@@ -127,6 +127,7 @@
       width: 100%;
       max-width: 800px;
       margin: 0 auto 40px;
+
       display: block;
       border-radius: 8px;
     }
@@ -187,6 +188,93 @@
       margin-bottom: 10px;
       color: var(--accent);
     }
+    
+        /* --- MODAL STYLES --- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      transform: translateY(-50px);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.active .modal-content {
+        transform: translateY(0);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    
+    .form-message {
+        min-height: 20px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        color: var(--charcoal);
+    }
+
+    .form-submit-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        background-color: var(--primary);
+        color: var(--cream);
+    }
+
+    .form-submit-button:hover:not(:disabled) {
+        background-color: #174d17;
+    }
+    .form-submit-button:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+    }
+
   </style>
 </head>
 <body>
@@ -277,9 +365,157 @@
 	   </p>
     <p>"Trust the timing."</p>
     <p>&copy; 2026 Know Patience Fragrance. All rights reserved.</p>
-  </footer>
+  </footer>    
+  
+  <!-- REQUEST SAMPLE MODAL DIALOG -->
+    <div id="sampleModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        
+        <div class="modal-content">
+            
+            <!-- Close button -->
+            <button id="closeSampleModal" class="close-button" aria-label="Close dialog">
+                &times;
+            </button>
+
+            <h3 id="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; text-align: center;">Request a Sample</h3>
+            <p id="form-message" class="form-message" style="text-align: center; color: var(--charcoal);">
+                Enter your email address below. We'll contact you when samples become available.
+            </p>
+
+            <form id="sampleRequestForm">
+                
+                <div>
+                    <label for="email" style="display: none;">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com"
+                           class="form-input" aria-describedby="form-message">
+                </div>
+                
+                <button type="submit" id="submitButton" class="form-submit-button">
+                    Submit Request
+                </button>
+            </form>
+
+        </div>
+    </div>
+    <!-- END MODAL DIALOG -->
+
+    <script>
+        // --- GOOGLE FORM CONFIGURATION (MUST BE UPDATED BY USER) ---
+        /*
+        * CRITICAL SETUP NOTE:
+        * 1. Create a Google Form with one required 'Email Address' field.
+        * 2. GOOGLE_FORM_URL: Get the submission endpoint URL from the form's "Send" -> "Embed HTML" action.
+        * 3. EMAIL_FIELD_ID: Get the unique entry ID (e.g., 'entry.123456789') by using the "Get pre-filled link" feature.
+        */
+        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+        const EMAIL_FIELD_ID = 'entry.YOUR_EMAIL_FIELD_ID'; // e.g., 'entry.123456789'
+        // -----------------------------------------------------------------
+
+        const modal = document.getElementById('sampleModal');
+        const openButtons = document.querySelectorAll('#openContactModal, #openContactModalHero');
+        const closeButton = document.getElementById('closeSampleModal');
+        const form = document.getElementById('sampleRequestForm');
+        const formMessage = document.getElementById('form-message');
+        const submitButton = document.getElementById('submitButton');
+        const initialMessage = 'Enter your email address below. We\'ll contact you when samples become available.';
+
+        /** Toggles the visibility and accessibility of the modal. */
+        function toggleModal(show) {
+            if (show) {
+                modal.classList.add('active');
+                // Reset form state on open
+                formMessage.textContent = initialMessage;
+                formMessage.style.color = 'var(--charcoal)';
+                form.reset();
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Request';
+                submitButton.style.backgroundColor = 'var(--primary)';
+            } else {
+                modal.classList.remove('active');
+            }
+        }
+
+        // --- Event Listeners for UI ---
+        openButtons.forEach(button => {
+            button.addEventListener('click', () => toggleModal(true));
+        });
+
+        closeButton.addEventListener('click', () => toggleModal(false));
+        
+        // Close modal when clicking the overlay backdrop
+        modal.addEventListener('click', (e) => {
+            if (e.target.id === 'sampleModal') {
+                toggleModal(false);
+            }
+        });
+
+        // --- Backend Mechanism: Form Submission Handler ---
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value;
+            
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID') || EMAIL_FIELD_ID.includes('YOUR_EMAIL_FIELD_ID')) {
+                console.error("Configuration Error: Please update GOOGLE_FORM_URL and EMAIL_FIELD_ID in the script.");
+
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Configuration Error: Please update the Google Form variables in the script.';
+                return;
+            }
+
+
+            // Start loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            submitButton.style.backgroundColor = '#4d844d'; /* darker shade for loading */
+            formMessage.style.color = 'var(--primary)';
+            formMessage.textContent = 'Submitting your request...';
+
+            // Prepare form data for Google Form endpoint
+            const formData = new FormData();
+            formData.append(EMAIL_FIELD_ID, email);
+
+            try {
+                // Post data to Google Form. 'no-cors' mode is required.
+                const response = await fetch(GOOGLE_FORM_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors', 
+                });
+
+                // Assume success if no network error occurred (due to 'no-cors' mode)
+                formMessage.style.color = 'var(--primary)';
+                formMessage.textContent = 'Thank you! Your request has been recorded.';
+                form.reset();
+
+                submitButton.textContent = 'Request Sent!';
+                submitButton.style.backgroundColor = 'var(--primary)';
+                
+                // Keep the button disabled after success
+                
+                // Close the modal after a short delay
+                setTimeout(() => toggleModal(false), 2500);
+
+            } catch (error) {
+                console.error('Submission Error:', error);
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'An error occurred. Please try again.';
+                
+                submitButton.disabled = false;
+                submitButton.textContent = 'Try Again';
+                submitButton.style.backgroundColor = 'var(--primary)';
+            }
+        });
+    </script>
+
 
 </body>
 
 </html>
-
