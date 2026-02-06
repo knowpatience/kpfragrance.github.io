@@ -1,4 +1,3 @@
-
 <!-- index.txt (renamed index.html) -->
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +34,7 @@
     }
 
     body {
-      margin: 0;
+      margin: 0px;
       font-family: 'Open Sans', sans-serif;
       color: var(--charcoal);
       background-color: var(--cream);
@@ -46,7 +45,7 @@
       background-color: var(--cream);
       padding: 20px;
       text-align: center;
-      box-shadow: 0 2px 0px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 0px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -61,7 +60,7 @@
     }
 
     header {
-      padding: 40px 20px;
+      padding: 20px 20px;
       text-align: center;
     }
 
@@ -78,21 +77,29 @@
       text-shadow: 3px 4px 4px rgba(0,0,0,1);
     }
 
+    hr.thick {
+      height: 8px;
+      background-color: var(--accent);
+      text-align: center;
+      text-shadow: 3px 4px 4px rgba(0,0,0,1);
+    }
+
     h2 {
-      font-size: 1.2rem;
-	    font-style: italic;
+      font-size: 1.7rem;
+      font-style: italic;
       font-weight: 400;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       text-align: center;
     }
-    
+
     .content-wrapper {
       flex: 1 0 auto;
     }
 
     .testimonial {
+      font-size: 1.5rem;
       font-style: italic;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       color: var(--charcoal);
     }
 
@@ -111,26 +118,26 @@
       background-color: var(--highlight);
     }
 	
-	.socialmedia-button{
-	  background-color: var(--accent);
+    .socialmedia-button{
+      background-color: var(--accent);
       color: var(--charcoal);
       padding: 8px 10px;
       font-size: 1rem;
       text-transform: uppercase;
-	    text-align: center;
+      text-align: center;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s ease;
-	}
+    }
 	
-	.socialmedia-button:hover {
+    .socialmedia-button:hover {
       background-color: var(--highlight);
     }
 
     .hero-image {
       height: 75vh;
       max-width: 100vw;
-      position: relative
+      position: relative;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -175,15 +182,15 @@
     }
 
     footer {
-	    bottom: 0;
-	    width: 100%;
-	    margin: 0;
+      bottom: 0;
+      width: 100%;
+      margin: 0;
       background-color: var(--black);
       color: var(--cream);
       text-align: center;
       padding: 30px 0px;
       font-size: 0.9rem;
-	    z-index: 999;
+      z-index: 999;
     }
 
     footer p:first-child {
@@ -192,7 +199,7 @@
       margin-bottom: 10px;
       color: var(--accent);
     }
-    
+
         /* --- MODAL STYLES --- */
     .modal-overlay {
       position: fixed;
@@ -216,7 +223,7 @@
     }
 
     .modal-content {
-      background-color: white;
+      background-color: var(--cream);
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -284,28 +291,32 @@
 <body>
 
   <div class="content-wrapper">
+  <div class="hr.thick">
 
   <nav>
-    <a href="index.html">Catalog</a>
+    <a href="#" id="openInfoModal">Catalog</a>
     <a href="about.html">About</a>
   </nav>
 
-    <img src="images/KP_FRAG_HEAD_v2.jpg"
-         alt="Know Patience Fragrance"
-         class="hero-image" />
+  <img src="images/KP_FRAG_HEAD_v2.jpg"
+    alt="Know Patience Fragrance"
+    class="hero-image" />
+
+
   <header>
     
-    <h1>KNOW PATIENCE<hr>FRAGRANCE</h1>
-    <h2>It's time to own your individuality.</h2>
+   <h1>KNOW PATIENCE<hr>FRAGRANCE</h1>
+   <h2>It's time to own your individuality.</h2>
  
-    <p class="testimonial">"Coming Soon.”</p>
+   <a href="#" id="openInfoModal"><p class="testimonial">"Coming Soon.”</p></a>
 <!--
     <a href="catalog.html">
       <button class="cta-button">Explore the Catalog</button>
     </a>
   </header>
 
-  <section id="fragrance">
+  <section id="fragrance" style="padding:40px 20px;>
+
     <a href="catalog.html">
          <h2 style="color:var(--primary); margin-bottom:16px;text-decoration:none">Fragrance Collection</h2>
     </a>
@@ -314,9 +325,7 @@
         <h2><img src="LLN.jpg" alt="LLN"/></h2>
         <a href="product_1.html"><h3>La Lavonde Noir</h3></a>
         <p>Alluringly smooth lavender and spices.</p>
-
       </div>
-<!--
       <div class="product">
         <img src="images/rose-absolute.jpg" alt="Rose Absolute" />
         <h3>Rose Absolute</h3>
@@ -349,53 +358,59 @@
 
 <!--
   <section id="style" style="padding:40px 20px; text-align:center;">
-<!--
+
     <h2 style="color:var(--primary); margin-bottom:16px;">Style, Made Just for You</h2>
     <p>No logos. No compromises. Our bespoke military-inspired office wear is tailored to your form and your vision of elegance.</p>
--->
 
   </section>
+-->
   </div>
+  </div>
+
   <footer>
-	  <p>Find us on social media</p>
-	  <!--
-	  <a href="https://www.facebook.com/knowpatiencefragrance">
-	     <button class="socialmedia-button">Facebook</button>
-	  </a>
-	  -->
+    <p>Find us on social media</p>
+	<!--
+	<a href="https://www.facebook.com/knowpatiencefragrance">
+	  <button class="socialmedia-button">Facebook</button>
+	</a>
+	-->
 	  <a href="https://www.instagram.com/knowpatiencefragrance">
-         <button class="socialmedia-button">Instagram</button>
-      </a>
-	   </p>
-    <p>"Trust the timing."</p>
+        <button class="socialmedia-button">Instagram</button>
+    </a>
+    <p style="color:var(--accent); font-family:'Playfair Display', serif; font-size:1.2rem;">"Trust the timing."</p>
     <p>&copy; 2026 Know Patience Fragrance. All rights reserved.</p>
-  </footer>    
-  
-  <!-- REQUEST SAMPLE MODAL DIALOG -->
-    <div id="sampleModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  </footer>
+
+</body>
+
+  <!-- REQUEST INFO MODAL DIALOG -->
+    <div id="infoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         
         <div class="modal-content">
             
             <!-- Close button -->
-            <button id="closeSampleModal" class="close-button" aria-label="Close dialog">
+            <button id="closeInfoModal" class="close-button" aria-label="Close dialog">
                 &times;
             </button>
 
-            <h3 id="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; text-align: center;">Request a Sample</h3>
+            <h3 id="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; text-align: center;">Get in the know</h3>
             <p id="form-message" class="form-message" style="text-align: center; color: var(--charcoal);">
-                Enter your email address below. We'll contact you when samples become available.
+                Enter your name and email address below. We'll contact you when new additions to the catalog are available.
             </p>
 
-            <form id="sampleRequestForm">
+            <form id="infoRequestForm">
                 
                 <div>
+                    <label for="name" style="display: none;">First Name</label>
+                    <input type="name" id="name" name="name" required placeholder="First name"
+                           class="form-input" aria-describedby="form-message">
                     <label for="email" style="display: none;">Email Address</label>
                     <input type="email" id="email" name="email" required placeholder="name@example.com"
                            class="form-input" aria-describedby="form-message">
                 </div>
                 
                 <button type="submit" id="submitButton" class="form-submit-button">
-                    Submit Request
+                    Submit
                 </button>
             </form>
 
@@ -415,13 +430,13 @@
         const EMAIL_FIELD_ID = 'entry.YOUR_EMAIL_FIELD_ID'; // e.g., 'entry.123456789'
         // -----------------------------------------------------------------
 
-        const modal = document.getElementById('sampleModal');
-        const openButtons = document.querySelectorAll('#openContactModal, #openContactModalHero');
-        const closeButton = document.getElementById('closeSampleModal');
-        const form = document.getElementById('sampleRequestForm');
+        const modal = document.getElementById('infoModal');
+        const openButtons = document.querySelectorAll('#openInfoModal, #openInfoModalHero');
+        const closeButton = document.getElementById('closeInfoModal');
+        const form = document.getElementById('infoRequestForm');
         const formMessage = document.getElementById('form-message');
         const submitButton = document.getElementById('submitButton');
-        const initialMessage = 'Enter your email address below. We\'ll contact you when samples become available.';
+        const initialMessage = 'Enter your name and email address below. We\'ll contact you when new additions to the catalog available.';
 
         /** Toggles the visibility and accessibility of the modal. */
         function toggleModal(show) {
@@ -468,7 +483,6 @@
 
             if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID') || EMAIL_FIELD_ID.includes('YOUR_EMAIL_FIELD_ID')) {
                 console.error("Configuration Error: Please update GOOGLE_FORM_URL and EMAIL_FIELD_ID in the script.");
-
                 formMessage.style.color = 'red';
                 formMessage.textContent = 'Configuration Error: Please update the Google Form variables in the script.';
                 return;
@@ -519,7 +533,5 @@
         });
     </script>
 
-
-</body>
-
 </html>
+
