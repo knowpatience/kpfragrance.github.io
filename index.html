@@ -450,8 +450,9 @@
         * 2. GOOGLE_FORM_URL: Get the submission endpoint URL from the form's "Send" -> "Embed HTML" action.
         * 3. EMAIL_FIELD_ID: Get the unique entry ID (e.g., 'entry.123456789') by using the "Get pre-filled link" feature.
         */
-        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
-        const EMAIL_FIELD_ID = 'entry.YOUR_EMAIL_FIELD_ID'; // e.g., 'entry.123456789'
+        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe69znRk_ATXTnfDn_IuGZRhLjDVGt9VeOgm_jaS5AGX_RJDQ/formResponse';
+        const NAME_FIELD_ID = 'entry.2144683837';
+        const EMAIL_FIELD_ID = 'entry.612891297'; // e.g., 'entry.123456789'
         // -----------------------------------------------------------------
 
         const modal = document.getElementById('infoModal');
@@ -467,20 +468,28 @@
             if (show) {
                 modal.classList.add('active');
                 // Reset form state on open
+
                 formMessage.textContent = initialMessage;
+
                 formMessage.style.color = 'var(--charcoal)';
                 form.reset();
+
                 submitButton.disabled = false;
                 submitButton.textContent = 'Submit Request';
                 submitButton.style.backgroundColor = 'var(--primary)';
+
             } else {
+
                 modal.classList.remove('active');
+
             }
         }
 
         // --- Event Listeners for UI ---
         openButtons.forEach(button => {
+
             button.addEventListener('click', () => toggleModal(true));
+
         });
 
         closeButton.addEventListener('click', () => toggleModal(false));
@@ -488,6 +497,7 @@
         // Close modal when clicking the overlay backdrop
         modal.addEventListener('click', (e) => {
             if (e.target.id === 'sampleModal') {
+
                 toggleModal(false);
             }
         });
@@ -496,6 +506,8 @@
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
+            const nameInput = document.getElementById('name');
+            const name = nameInput.value;
             const emailInput = document.getElementById('email');
             const email = emailInput.value;
             
@@ -503,25 +515,36 @@
                 formMessage.style.color = 'red';
                 formMessage.textContent = 'Please enter a valid email address.';
                 return;
+
             }
 
             if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID') || EMAIL_FIELD_ID.includes('YOUR_EMAIL_FIELD_ID')) {
+
                 console.error("Configuration Error: Please update GOOGLE_FORM_URL and EMAIL_FIELD_ID in the script.");
+
                 formMessage.style.color = 'red';
+
                 formMessage.textContent = 'Configuration Error: Please update the Google Form variables in the script.';
+
                 return;
+
             }
 
 
+
             // Start loading state
+
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
             submitButton.style.backgroundColor = '#4d844d'; /* darker shade for loading */
+
             formMessage.style.color = 'var(--primary)';
             formMessage.textContent = 'Submitting your request...';
 
             // Prepare form data for Google Form endpoint
             const formData = new FormData();
+
+            formData.append(NAME_FIELD_ID, name);
             formData.append(EMAIL_FIELD_ID, email);
 
             try {
@@ -531,6 +554,7 @@
                     body: formData,
                     mode: 'no-cors', 
                 });
+
 
                 // Assume success if no network error occurred (due to 'no-cors' mode)
                 formMessage.style.color = 'var(--primary)';
@@ -542,20 +566,22 @@
                 
                 // Keep the button disabled after success
                 
+
                 // Close the modal after a short delay
                 setTimeout(() => toggleModal(false), 2500);
 
             } catch (error) {
                 console.error('Submission Error:', error);
                 formMessage.style.color = 'red';
+
                 formMessage.textContent = 'An error occurred. Please try again.';
                 
                 submitButton.disabled = false;
                 submitButton.textContent = 'Try Again';
                 submitButton.style.backgroundColor = 'var(--primary)';
+
             }
         });
     </script>
 
 </html>
-
