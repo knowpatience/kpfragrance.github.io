@@ -5,78 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="About Know Patience Fragrance – A quiet rebellion against mass-produced luxury perfume." />
   <title>About Know Patience Fragrance</title>
-  <link rel="icon" href="images/Know Patience.png" type="image/png">
+  <link rel="icon" href="Know Patience.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
 	  	rel="stylesheet" />
   <style>
-    :root {
-      --primary: #226222;
-      --accent: #d88e38;
-      --highlight: #c2cb00;
-      --cream: #F8F8F8;
-      --charcoal: #1A1A1A;
-      --black: #000000;
-    }
 
-     a:link {
-       text-decoration: none;
-    }
-     a:visited {
-       text-decoration: none;
-    }
-     a:hover {
-       text-decoration: none;
-    }
-     a:active {
-       text-decoration: none;
-    }
+@import "assets/base.css";
 
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       color: var(--charcoal);
       background-color: var(--cream);
-      background-image: url('your-background-image.jpg'); /* Replace with actual image path */
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-	  scroll-behavior: smooth;
-    }
-
-    nav {
-      background-color: var(--cream);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--charcoal);
-      font-weight: 600;
-      font-size: 1rem;
+      scroll-behavior: smooth;
     }
 
     h1 {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 2.5rem;
       margin-bottom: 20px;
       color: var(--primary);
-      text-align: center;
-      text-shadow: 3px 3px 4px rgba(0,0,0,0.1);
+      text-shadow: 3px 4px 4px rgba(0,0,0,0.1);
     }
 
     .content p {
-     font-family: 'Open Sans', sans-serif;
+     font-family: 'Playfair Display', serif;
+     font-size: 1.5rem;
      color: var(--charcoal);
-     text-shadow: 3px 3px 4px rgba(0,0,0,0.1);
      padding: 10px;
     }
 
+    .content-image{
+      background-image: url('images/KP_FRAG_HEAD_v2.jpg');
+      opacity: 0.8;
+      margin: 0 auto;
+      width: 100%;
+      background-position: center;
+      border-radius: 8px;
+    }
+    
     .content-wrapper {
       max-width: 800px;
       margin: 0 auto;
@@ -87,7 +53,11 @@
       padding: 10px;
       border-radius: 8px;
     }
-    
+
+    .ceo-image{
+      box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.1);
+    }
+
     .back-link {
       text-align: center;
       margin-top: 40px;
@@ -100,22 +70,9 @@
       font-size: 1rem;
     }
 
-	footer {
-      background-color: var(--black);
-      color: var(--cream);
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-    }
-
-    footer p:first-child {
-      font-family: 'Playfair Display', sans-serif;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -130,8 +87,15 @@
     <p>Know Patience Fragrance is a quiet stand against vulgar institutional luxury and uninspired copies of popular scents.</p>
     <p>The elegant fine fragrances offered here are crafted in small batches — each one painstakingly designed to evoke confident presence, not noise.</p>
     <p>We believe scents are the bridge connecting memories with emotions and smell is intimate and personal. </p>
-	<p>Olfactory elegance is never offensive or abrasive.</p>
+    <p>Olfactory elegance is never offensive or abrasive.</p>
     <p>Based in the United States, we work with those who value timelessness over trends, and individuality over imitation.</p>
+
+    <div class="ceo-image"><img src="images/KP_FRAG_CEO.jpg"
+      alt="Know Patience Fragrance CEO" />
+      </div>
+
+    <p>Know Patience Fragrance Founder & CEO Sedrick Craig has had a passion for perfume since childhood and started experimenting with perfumery much later as an extension of his fashion aspirations.</p>
+    <p>What started with mixing essential oils for a home room spray bloomed into full concepts for unique scents and with maceration became Know Patience Fragrance.</p>
     </div>
   </div>
 
@@ -140,15 +104,14 @@
   </div>
   <br>
 
-    <footer>
-		<p>"Trust the timing."</p>
+  <footer>
+    <p>"Trust the timing."</p>
     <p>&copy; 2026 Know Patience Fragrance. All rights reserved.</p>
   </footer>
 
   
 </body>
 </html>
-
 
 
 

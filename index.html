@@ -10,28 +10,10 @@
   <link rel="icon" href="images/Know Patience.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #226222;
-      --accent: #d88e38;
-      --highlight: #c2cb00;
-      --cream: #F8F8F8;
-      --charcoal: #1A1A1A;
-      --black: #000000;
-    }
 
-     a:link {
-       text-decoration: none;
-    }
-     a:visited {
-       text-decoration: none;
-    }
-     a:hover {
-       text-decoration: none;
-    }
-     a:active {
-       text-decoration: none;
-    }
+  <style>
+
+@import "assets/base.css";
 
     body {
       margin: 0px;
@@ -41,62 +23,25 @@
       scroll-behavior: smooth;
     }
     
-    /* Styles for mobile screens */
-    @media (max width: 600px) {
-       body{
-         display: flex;
-         flex-direction: column;
-         flex-wrap: wrap;
-       }
-    }  
-    
-    /* Styles for large screens */
-    @media (min-width: 768px) {
-       body {
-         flex-direction: row;
-       }
-    }
-
-    nav {
-      background-color: var(--cream);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 3px 0px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--charcoal);
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
     header {
       padding: 20px 20px;
       text-align: center;
-    }
-
-    h1 {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 2.5rem;
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -40%);
-      margin-bottom: 40px;
-      color: var(--cream);
-      text-align: center;
-      text-shadow: 3px 4px 4px rgba(0,0,0,1);
     }
 
     hr.thick {
       height: 8px;
       background-color: var(--accent);
       text-align: center;
+      text-shadow: 3px 4px 4px rgba(0,0,0,1);
+    }
+
+      h1 {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      margin-bottom: 40px;
+      color: var(--cream);
       text-shadow: 3px 4px 4px rgba(0,0,0,1);
     }
 
@@ -198,25 +143,6 @@
       color: #555;
     }
 
-    footer {
-      bottom: 0;
-      width: 100%;
-      margin: 0;
-      background-color: var(--black);
-      color: var(--cream);
-      text-align: center;
-      padding: 30px 0px;
-      font-size: 0.9rem;
-      z-index: 999;
-    }
-
-    footer p:first-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-
         /* --- MODAL STYLES --- */
     .modal-overlay {
       position: fixed;
@@ -312,7 +238,6 @@
 <body>
 
   <div class="content-wrapper">
-  <div class="hr.thick">
 
   <nav>
     <a href="#" id="openInfoModal">Catalog</a>
@@ -468,28 +393,20 @@
             if (show) {
                 modal.classList.add('active');
                 // Reset form state on open
-
                 formMessage.textContent = initialMessage;
-
                 formMessage.style.color = 'var(--charcoal)';
                 form.reset();
-
                 submitButton.disabled = false;
                 submitButton.textContent = 'Submit Request';
                 submitButton.style.backgroundColor = 'var(--primary)';
-
             } else {
-
                 modal.classList.remove('active');
-
             }
         }
 
         // --- Event Listeners for UI ---
         openButtons.forEach(button => {
-
             button.addEventListener('click', () => toggleModal(true));
-
         });
 
         closeButton.addEventListener('click', () => toggleModal(false));
@@ -497,7 +414,6 @@
         // Close modal when clicking the overlay backdrop
         modal.addEventListener('click', (e) => {
             if (e.target.id === 'sampleModal') {
-
                 toggleModal(false);
             }
         });
@@ -515,35 +431,25 @@
                 formMessage.style.color = 'red';
                 formMessage.textContent = 'Please enter a valid email address.';
                 return;
-
             }
 
             if (GOOGLE_FORM_URL.includes('YOUR_FORM_ID') || EMAIL_FIELD_ID.includes('YOUR_EMAIL_FIELD_ID')) {
-
                 console.error("Configuration Error: Please update GOOGLE_FORM_URL and EMAIL_FIELD_ID in the script.");
-
                 formMessage.style.color = 'red';
-
                 formMessage.textContent = 'Configuration Error: Please update the Google Form variables in the script.';
-
                 return;
-
             }
 
 
-
             // Start loading state
-
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
             submitButton.style.backgroundColor = '#4d844d'; /* darker shade for loading */
-
             formMessage.style.color = 'var(--primary)';
             formMessage.textContent = 'Submitting your request...';
 
             // Prepare form data for Google Form endpoint
             const formData = new FormData();
-
             formData.append(NAME_FIELD_ID, name);
             formData.append(EMAIL_FIELD_ID, email);
 
@@ -555,7 +461,6 @@
                     mode: 'no-cors', 
                 });
 
-
                 // Assume success if no network error occurred (due to 'no-cors' mode)
                 formMessage.style.color = 'var(--primary)';
                 formMessage.textContent = 'Thank you! Your request has been recorded.';
@@ -566,22 +471,20 @@
                 
                 // Keep the button disabled after success
                 
-
                 // Close the modal after a short delay
                 setTimeout(() => toggleModal(false), 2500);
 
             } catch (error) {
                 console.error('Submission Error:', error);
                 formMessage.style.color = 'red';
-
                 formMessage.textContent = 'An error occurred. Please try again.';
                 
                 submitButton.disabled = false;
                 submitButton.textContent = 'Try Again';
                 submitButton.style.backgroundColor = 'var(--primary)';
-
             }
         });
     </script>
 
 </html>
+
