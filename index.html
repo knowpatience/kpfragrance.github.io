@@ -37,9 +37,9 @@
 
       h1 {
       position: absolute;
-      top: 35%;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, -40%);
+      transform: translate(-50%, -60%);
       margin-bottom: 40px;
       color: var(--cream);
       text-shadow: 3px 4px 4px rgba(0,0,0,1);
@@ -96,13 +96,41 @@
       background-color: var(--highlight);
     }
 
-    .hero-image {
-      height: 75vh;
-      width: 100vw;
-      position: relative;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+     .hero-image {
+       height: 75vh;
+       width: 100vw;
+       position: relative;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+    
+    /* Styles for mobile screens */
+    @media (max-width: 768px) {
+       body{
+         display: flex;
+         flex-direction: column;
+         flex-wrap: wrap;
+       }
+     .hero-image {
+       height: 35vh;
+       width: 100vw;
+       position: relative;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+      }
+       
+      h1 {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      font-size: 1.7rem;
+      transform: translate(-50%, -65%);
+      margin-bottom: 20px;
+      color: var(--cream);
+      text-shadow: 3px 4px 4px rgba(0,0,0,1);
+       }
     }
 
     .product-carousel {

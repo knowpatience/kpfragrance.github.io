@@ -20,22 +20,6 @@
        text-decoration: none;
     }
 
-    /* Styles for mobile screens */
-    @media (max-width: 600px) {
-       body{
-         display: flex;
-         flex-direction: column;
-         flex-wrap: wrap;
-       }
-    }  
-    
-    /* Styles for large screens */
-    @media (min-width: 768px) {
-       body {
-         flex-direction: row;
-       }
-    }
-
     nav {
       background-color: var(--cream);
       padding: 20px;
@@ -53,6 +37,10 @@
       font-weight: 600;
       font-size: 1rem;
     }
+    
+    body {
+       flex-direction: row;
+    }    
 
     h1 {
       font-family: 'Open Sans', sans-serif;
@@ -78,3 +66,5 @@
       margin-bottom: 10px;
       color: var(--accent);
     }
+    
+
