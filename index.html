@@ -36,11 +36,13 @@
     }
 
    .hero-container{
-      h1 {
+     padding-top: 30px;
+   
+     h1 {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -60%);
+      transform: translate(-50%, -50%);
       margin-bottom: 40px;
       color: var(--cream);
       text-shadow: 3px 4px 4px rgba(0,0,0,1);
@@ -112,24 +114,26 @@
          display: flex;
          flex-direction: column;
          flex-wrap: wrap;
-       }
-     .hero-container{
-     
-     .hero-image {
-       height: 45%;
-       width: 100%;
-       object-position: center;
-       background-position: center;
-       background-repeat: no-repeat;
-       object-fit: cover;
       }
+     .hero-container{
+       padding-top: 30px;
+       overflow: hidden;
+
+        .hero-image {
+           height: 45%;
+           width: 100%;
+           object-position: center;
+           background-position: center;
+           background-repeat: no-repeat;
+           object-fit: cover;
+          }
        
       h1 {
       position: absolute;
       top: 40%;
       left: 50%;
       font-size: 1.7rem;
-      transform: translate(-50%, -65%);
+      transform: translate(-50%, -50%);
       margin-bottom: 20px;
       color: var(--cream);
       text-shadow: 3px 4px 4px rgba(0,0,0,1);
@@ -145,9 +149,11 @@
          flex-wrap: wrap;
        }
      .hero-container{
+       padding-top: 30px;
+       overflow: hidden;       
      
      .hero-image {
-       height: 35%;
+       height: 45%;
        width: 100%;
        object-position: center;
        background-position: center;
@@ -160,7 +166,7 @@
       top: 20%;
       left: 50%;
       font-size: 1.6rem;
-      transform: translate(-50%, -65%);
+      transform: translate(-50%, -50%);
       margin-bottom: 20px;
       color: var(--cream);
       text-shadow: 3px 4px 4px rgba(0,0,0,1);
