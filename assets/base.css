@@ -6,6 +6,10 @@
       --charcoal: #1A1A1A;
       --black: #000000;
     }
+    
+    html {
+      scroll-behavior: smooth;
+    }
 
     a:link {
        text-decoration: none;
