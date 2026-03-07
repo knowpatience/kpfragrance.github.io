@@ -1,3 +1,14 @@
+/*
+ Theme Name:   KPLife Theme
+ Theme URI:    
+ Description:  KP Fragrance Child Theme
+ Author:       Sedrick Craig
+ Author URI:   
+ Template:     KP Life
+ Version:      1.0.0
+*/
+
+
 :root {
       --primary: #226222;
       --accent: #d88e38;
@@ -23,24 +34,46 @@
     a:active {
        text-decoration: none;
     }
+        
+    /* Styles for mobile screens */
+    @media (max-width: 600px) {
+       body{
+         display: flex;
+         flex-direction: column;
+         flex-wrap: wrap;
+       }
+    }  
+    
+    /* Styles for large screens */
+    @media (min-width: 768px) {
+       body {
+         flex-direction: row;
+       }
+    }
 
-    nav {
-      background-color: var(--cream);
-      padding: 20px;
+    .nav {
+      display: flex;
+      background-color: var(--primary);
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      box-shadow: 0 3px 0px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
     }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--charcoal);
-      font-weight: 600;
-      font-size: 1rem;
+    .nav-logo {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 30px;
+      width: auto;
+      border: 1px solid white;
     }
+
     
     body {
        flex-direction: row;
