@@ -370,11 +370,11 @@
    
 <body>
 
-  <div class="content-wrapper">
-
-  <nav>
-    <a href="#" id="openInfoModal">Catalog</a>
-    <a href="about.html">About</a>
+  <nav id="nav">
+   <img src="images/Know Patience.png" alt="KP Fragrance" class="nav-logo"/>
+   <a href="#" id="openInfoModal" class="nav-a">Catalog</a>
+   <a href="about.html" class="nav-a">About</a>
+<!--   <a href="contact.html" class="nav-a">Contact</a> /-->
   </nav>
 
  <div class="hero-container">
@@ -504,6 +504,35 @@
     <!-- END MODAL DIALOG -->
 
     <script>
+    
+        // Navbar changes
+              const nav = document.querySelector("nav");
+      const nav_a = document.querySelectorAll(".nav-a");
+
+      // Listen for the scroll event
+      window.addEventListener('scroll', function() {
+
+      // Check if the scroll position is greater than a certain threshold (e.g., 50px)
+      if (window.scrollY > 20) {
+         nav.classList.add("scrolled"); // Add the 'scrolled' class
+       } else {
+        nav.classList.remove("scrolled"); // Remove the 'scrolled' class
+       }
+      });
+
+        // Check if the scroll position is greater than a certain threshold (e.g., 50px)
+        /*
+
+      nav_a.forEach(link => {
+        if (window.scrollY > 20) {
+         link.classlist.add("active"); // Add the 'active' class
+       } else {
+        link.classList.remove("active"); // Remove the 'active' class     
+       }
+      });
+    });
+
+       */
         // --- GOOGLE FORM CONFIGURATION (MUST BE UPDATED BY USER) ---
         /*
         * CRITICAL SETUP NOTE:
