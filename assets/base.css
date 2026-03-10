@@ -74,6 +74,15 @@
       border: 1px solid white;
     }
 
+    .nav-a {
+      margin: 0 15px;
+      padding: 15px;
+      text-decoration: none;
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 1rem;
+      text-shadow: 3px 4px 4px rgba(0,0,0,0.7);
+      }
     
     body {
        flex-direction: row;
